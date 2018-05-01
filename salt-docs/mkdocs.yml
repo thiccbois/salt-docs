@@ -1,1 +1,8 @@
-site_name: My Docs
+site_name: Thiccbois Salt Usage Documentation
+site_description: Using saltstack a guide from 2 thiccbois
+pages:
+  - Home: index.md
+  - 'Getting Started': getting-started.md
+theme: readthedocs
+extra:
+  customer: Your name here

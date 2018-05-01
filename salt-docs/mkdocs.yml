@@ -7,4 +7,7 @@ pages:
   - 'Salt Cloud': salt-cloud.md
 theme: readthedocs
 extra:
-  customer: Your name here
+  customer:
+    name: Your name here
+    web: www.example.com
+    salt: salt.example.com

@@ -1,6 +1,9 @@
-# Welcome to MkDocs
+# Welcome to the thiccbois documentation for your saltstack
 
 For full documentation visit [mkdocs.org](http://mkdocs.org).
+
+{{extra}}
+{{extra.customer}}
 
 ## Commands
 
@@ -8,6 +11,7 @@ For full documentation visit [mkdocs.org](http://mkdocs.org).
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
+
 
 ## Project layout
 

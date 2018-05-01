@@ -1,1 +1,1 @@
-mkdocs==0.17.3
+-e git+https://github.com/rosscdh/mkdocs@feature/extra-in-markdown#egg=mkdocs

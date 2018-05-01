@@ -6,8 +6,14 @@ pages:
   - 'Getting Started': getting-started.md
   - 'Salt Cloud': salt-cloud.md
 theme: readthedocs
+plugins:
+    - search
+    - markdownextradata
 extra:
   customer:
     name: Your name here
     web: www.example.com
-    salt: salt.example.com
+  salt:
+    master: salt.example.com
+    example:
+      app_name: 'donkey-mule'

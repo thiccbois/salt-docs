@@ -1,21 +1,12 @@
-# Welcome to the thiccbois documentation for your saltstack
+# Welcome to the thiccbois documentation for the "{{ customer.name }}" saltstack
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+Hi there, thanks for agreeing to let us modernise your infrastructure and introduce the start of the art
+saltstack into your ops team.
 
-{{extra}}
-{{extra.customer}}
+What follows is a brief introduction to the basics of using salt from your salt master at {{ salt.master }}.
 
-## Commands
+For best results, ssh into your salt-master and review the ["Getting Started"](getting-started.md) section.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```
+ssh {{ salt.master }} -vvv
+```

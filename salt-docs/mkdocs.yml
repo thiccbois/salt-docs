@@ -4,6 +4,7 @@ pages:
   - Home: index.md
   - 'Overview': overview.md
   - 'Getting Started': getting-started.md
+  - 'Salt Cloud': salt-cloud.md
 theme: readthedocs
 extra:
   customer: Your name here

@@ -1,1 +1,2 @@
--e git+https://github.com/rosscdh/mkdocs@feature/extra-in-markdown#egg=mkdocs
+mkdocs
+-e git+https://github.com/rosscdh/mkdocs-markdownextradata-plugin#egg=markdownextradata

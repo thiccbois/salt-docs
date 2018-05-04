@@ -50,3 +50,14 @@ salt 'stage-worker*' state.apply pillar={"{{ salt.example.app_name }}":{"version
 ```
 salt 'stage-worker*' state.apply pillar={"{{ salt.example.app_name }}":{"version": "fac4219"}}
 ```
+
+### Add salt formula
+add gitfs_root to pillars/salt/master.sls
+``` 
+user@saltmaster:~$ sudo salt-call state.apply --state-verbose=False
+``` 
+if formula is not available yet
+``` 
+user@saltmaster:~$ sudo salt-call state.apply --state-verbose=False
+
+```

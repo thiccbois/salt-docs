@@ -24,15 +24,16 @@ git clone {{ salt.git.pillar }} pillar
 # profiles
 git clone {{ salt.git.profiles }} profiles
 # formulas
-{% for application in salt.git.formulas %}git clone {{ application.repo }} formula/{{ application.name }}
-{% endfor %}
+{% for application in salt.git.formulas %}
+git clone {{ application.repo }} formula/{{ application.name }}{% endfor %}
 ```
 
 Now your tree should look like
 
 ```
 ./{{ salt.project }}-saltstack
-├── formulas
+├── formulas{% for application in salt.git.formulas %}
+│   └── {{ application.name }}{% endfor %}
 ├── pillar
 │   ├── LICENSE
 │   ├── README.md

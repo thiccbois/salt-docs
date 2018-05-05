@@ -88,9 +88,11 @@ would have a folder structure like so:
     └── top.sls
 ```
 
-**NB** of course you could also have `pillar/qa/my_app/01/init.sls` and `pillar/qa/my_app/02/init.sls` but this kind of granularity is usually not usually necessary not recommended.
+**NB** of course you could also have `pillar/qa/my_app/01/init.sls` and `pillar/qa/my_app/02/init.sls` but this kind of granularity not usually necessary and very rarely recommended.
 
-#### Profiles
+**NB** yes, you can group the folders by `<application>-<env>-<instance>` if you like. We are simply proposing a structure that we know to work best.
+
+#### Profile - the applications you want installed
 
 In the `profiles.top.sls` we would include application formula for my_app:
 
@@ -102,7 +104,7 @@ base:
                                   #   and usually also the name in this formulas config/defaults.sls
 ```
 
-#### Pillar
+#### Pillar - the settings for the applications
 
 in the `pillar.qa.my_app.init.sls` we would have the config settings for qa:
 

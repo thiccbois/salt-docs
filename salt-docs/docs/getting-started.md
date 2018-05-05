@@ -7,14 +7,16 @@ Create the following tree structure.
 
 ```
 mkdir -p ./{{ salt.project }}-saltstack/formulas
+```
 
-# gives us
+gives us
 
+```
 ./{{ salt.project }}-saltstack
 ├── formulas
 ```
 
-then
+then go ahead and:
 
 ```
 cd {{ salt.project }}-saltstack
@@ -22,8 +24,7 @@ cd {{ salt.project }}-saltstack
 git clone {{ salt.git.pillar }} pillar
 # profiles
 git clone {{ salt.git.profiles }} profiles
-# formulas
-{% for application in salt.git.formulas %}
+# formulas{% for application in salt.git.formulas %}
 git clone {{ application.repo }} formula/{{ application.name }}{% endfor %}
 ```
 
@@ -45,6 +46,14 @@ Now your tree should look like
     ├── saltmaster.sls
     ├── top.sls
 ```
+
+#### Great, so now you can go about:
+
+1. creating folder structure to reflect your application/infrastructure breakdown
+2. map hostnames to the folder structure in the `tops.sls` for both `pillar` and `profiles`
+
+*NB* remember to `git add -p` `git commit -m""` and `git push origin master` and wait a few seconds for your changes to be refleced on salt-master "`{{ salt.master }}`"
+
 
 ## Q & A
 

@@ -9,13 +9,6 @@ Create the following tree structure.
 mkdir -p ./{{ salt.project }}-saltstack/formulas
 ```
 
-gives us
-
-```
-./{{ salt.project }}-saltstack
-├── formulas
-```
-
 then go ahead and:
 
 ```

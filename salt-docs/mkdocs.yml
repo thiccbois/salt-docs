@@ -4,6 +4,7 @@ pages:
   - Home: index.md
   - 'Overview': overview.md
   - 'Getting Started': getting-started.md
+  - 'Commands': commands-overview.md
   - 'Salt Cloud': salt-cloud.md
 theme: spacelab
 plugins:
@@ -14,6 +15,19 @@ extra:
     name: Your name here
     web: www.example.com
   salt:
+    project: example
     master: salt.example.com
     example:
       app_name: 'donkey-mule'
+    git:
+      pillar: https://github.com/example/salt-pillar
+      profiles: https://github.com/example/salt-profiles
+      formulas:
+        - name: example-formula
+          repo: https://github.com/example/example-formula
+        - name: rabbitmq-formula
+          repo: https://github.com/example/rabbitmq-formula
+        - name: redis-formula
+          repo: https://github.com/example/redis-formula
+        - name: docker-formula
+          repo: https://github.com/example/docker-formula

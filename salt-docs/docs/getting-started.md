@@ -1,64 +1,60 @@
-# Getting started with saltstack
+# Getting Started
 
 
+Create the following tree structure.
 
-## Example Commands
+*we are working on a helper tool called [salt-primer](https://github.com/thiccbois/saltprimer) to make this process simpler*
 
-Command examples (run from salt-master - salt.example.com)
-
-###  Run a command on all machines
-```
-salt '*' cmd.run "uptime"
-```
-
-###  Run a command on only worker machines
-```
-salt 'prd-worker*' cmd.run "uptime"
-```
-
-###  Run a command on only staging worker machines
-```
-salt 'stage-worker*' cmd.run "uptime"
-```
-
-###  Run state.apply on a single machine
-```
-salt 'stage-worker02.example.com' state.apply
-```
-
-###  Create a new worker instance
-
-Once you have created a worker profile you are then able to spawn instances of it.
 
 ```
-sudo salt-cloud -p salt_pg qa-core-app-api01-scantrust.cc
-```
-at this point state.apply is run and the matching name `prd-worker*` would install the app configured for running as a worker, install the latest version and bring all dependencies up
+mkdir -p ./{{ salt.project }}-saltstack/formulas
 
+# gives us
 
-###  Destroy an instance
-```
-salt-cloud -d qa-core-app-api01-scantrust.cc
-
+./{{ salt.project }}-saltstack
+├── formulas
 ```
 
-###  Deployment using state with docker version latest
-```
-salt 'stage-worker*' state.apply pillar={"{{ salt.example.app_name }}":{"version": "latest"}}
-```
-
-###  Deployment using state with docker tag version override
-```
-salt 'stage-worker*' state.apply pillar={"{{ salt.example.app_name }}":{"version": "fac4219"}}
-```
-
-### Add salt formula
-add gitfs_root to pillars/salt/master.sls
-``` 
-user@saltmaster:~$ sudo salt-call state.apply --state-verbose=False
-``` 
-if formula is not available yet
-``` 
-user@saltmaster:~$ sudo salt-call state.apply --state-verbose=False
+then
 
 ```
+cd {{ salt.project }}-saltstack
+# pillar
+git clone {{ salt.git.pillar }} pillar
+# profiles
+git clone {{ salt.git.profiles }} profiles
+# formulas
+{% for application in salt.git.formulas %}git clone {{ application.repo }} formula/{{ application.name }}
+{% endfor %}
+```
+
+Now your tree should look like
+
+```
+./{{ salt.project }}-saltstack
+├── formulas
+├── pillar
+│   ├── LICENSE
+│   ├── README.md
+│   ├── base.sls
+│   ├── top.sls
+└── profiles
+    ├── LICENSE
+    ├── README.md
+    ├── base.sls
+    ├── saltmaster.sls
+    ├── top.sls
+```
+
+## Q & A
+
+#### Why do we have a `pillar` and a `profiles` repo
+*Why not just combine them?*
+
+Salt seperates pillars and profiles at the file level thus we need 2 seperate repos to keep things simple.
+However, there are other security benefits too, you may not want your pillars exposed to anyone except some ops
+but you may want to expose the applications installed on machines for your developers. [12factor app](https://12factor.net)
+
+#### What is the `tops.sls`?
+*In both `pillar` AND `profiles`*
+

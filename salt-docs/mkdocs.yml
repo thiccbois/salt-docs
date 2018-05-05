@@ -17,6 +17,7 @@ extra:
   salt:
     project: example
     master: salt.example.com
+    fqdn: example.com
     example:
       app_name: 'donkey-mule'
     git:

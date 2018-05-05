@@ -6,6 +6,7 @@ pages:
   - 'Getting Started': getting-started.md
   - 'Commands': commands-overview.md
   - 'Salt Cloud': salt-cloud.md
+  - 'Formulas': formulas.md
 theme: spacelab
 plugins:
     - search

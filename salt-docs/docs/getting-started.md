@@ -1,9 +1,8 @@
 # Getting Started
 
+*we are working on a helper tool called [salt-primer](https://github.com/thiccbois/saltprimer) to make this process simpler*
 
 Create the following tree structure.
-
-*we are working on a helper tool called [salt-primer](https://github.com/thiccbois/saltprimer) to make this process simpler*
 
 
 ```
@@ -49,13 +48,32 @@ Now your tree should look like
 
 ## Q & A
 
-#### Why do we have a `pillar` and a `profiles` repo
+### What are `profiles`
+*?*
+
+`Profiles` or "`states`" are the applications and "things" that you want installed on machine instances
+
+
+### What are `pillars`
+*?*
+
+`Pillars` are the config settings for your applications.
+They can be thought of as config instances, as in sometimes you have an application that you wan configured differently on different machines, by using folder structures you can use the same settings structure, but with different values
+
+
+#### What are `formulas`
+**
+
+Formulas are a way of packaging `pillars` and `profiles` so that they will install an application and allow it to be configured within your infrastructure.
+
+
+### Why do we have a `pillar` and a `profiles` repo
 *Why not just combine them?*
 
 Salt seperates pillars and profiles at the file level thus we need 2 seperate repos to keep things simple.
 However, there are other security benefits too, you may not want your pillars exposed to anyone except some ops
 but you may want to expose the applications installed on machines for your developers. [12factor app](https://12factor.net)
 
-#### What is the `tops.sls`?
+### What is the `tops.sls`?
 *In both `pillar` AND `profiles`*
 

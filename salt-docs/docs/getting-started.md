@@ -57,26 +57,26 @@ Now your tree should look like
 
 ## Q & A
 
-### What are `profiles`
-*?*
+### What are `profiles`?
+*The applications you want running on your infrastructure that reflect your infrastructure composition with folders*
 
 `Profiles` or "`states`" are the applications and "things" that you want installed on machine instances
 
 
-### What are `pillars`
-*?*
+### What are `pillars`?
+*The config settings for your application instances that reflect your infrastructure composition with folders*
 
 `Pillars` are the config settings for your applications.
 They can be thought of as config instances, as in sometimes you have an application that you wan configured differently on different machines, by using folder structures you can use the same settings structure, but with different values
 
 
-#### What are `formulas`
-**
+### What are `formulas`?
+*Application packages with default config and file templates*
 
 Formulas are a way of packaging `pillars` and `profiles` so that they will install an application and allow it to be configured within your infrastructure.
 
 
-### Why do we have a `pillar` and a `profiles` repo
+### Why do we have a `pillar` and a `profiles` repo?
 *Why not just combine them?*
 
 Salt seperates pillars and profiles at the file level thus we need 2 seperate repos to keep things simple.

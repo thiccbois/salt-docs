@@ -1,11 +1,11 @@
-site_name: Thiccbois Salt Usage Documentation
+site_name: Thiccbois - Salt Documentation
 site_description: Using saltstack a guide from 2 thiccbois
 pages:
   - Home: index.md
   - 'Overview': overview.md
   - 'Getting Started': getting-started.md
   - 'Salt Cloud': salt-cloud.md
-theme: readthedocs
+theme: spacelab
 plugins:
     - search
     - markdownextradata

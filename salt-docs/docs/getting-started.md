@@ -31,14 +31,15 @@ salt 'stage-worker02.example.com' state.apply
 Once you have created a worker profile you are then able to spawn instances of it.
 
 ```
-salt-cloud -p worker_machine prd-worker03
+sudo salt-cloud -p salt_pg qa-core-app-api01-scantrust.cc
 ```
 at this point state.apply is run and the matching name `prd-worker*` would install the app configured for running as a worker, install the latest version and bring all dependencies up
 
 
 ###  Destroy an instance
 ```
-salt-cloud -d prd-worker03
+salt-cloud -d qa-core-app-api01-scantrust.cc
+
 ```
 
 ###  Deployment using state with docker version latest

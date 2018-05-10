@@ -21,6 +21,9 @@ git clone {{ salt.git.profiles }} profiles
 git clone {{ application.repo }} formula/{{ application.name }}{% endfor %}
 ```
 
+**Dont have access?** [Contact one of us](contact.md)
+
+
 Now your tree should look like
 
 ```

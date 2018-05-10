@@ -3,15 +3,21 @@ site_description: Using saltstack a guide from 2 thiccbois
 pages:
   - Home: index.md
   - 'Overview': overview.md
-  - 'Getting Started': getting-started.md
+  - 'Get Started': getting-started.md
   - 'Commands': commands-overview.md
-  - 'Salt Cloud': salt-cloud.md
+  - 'Cloud': salt-cloud.md
   - 'Formulas': formulas.md
+  - 'Contact': contact.md
 theme: spacelab
 plugins:
     - search
     - markdownextradata
 extra:
+  thiccbois:
+    - name: Ross Crawford-d'Heureuse
+      email: sendrossemail@gmail.com
+    - name: Stefan Schweer
+      email: s.schweer@heavycloud.de  
   customer:
     name: Your name here
     web: www.example.com

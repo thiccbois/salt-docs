@@ -30,4 +30,15 @@ Configuration and secrets are handled via .sls (yaml) files that are hosted in g
 There are a number of approaches to handling secrets one of which is GPG for which salt has a custom gpg renderer ["Salt GPG Renderer"](https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html) but this topic usually only becomes a problem with large teams that have many users accessing confidential files.
 
 
+### Debugging salt
+
+Sometimes your formulas or pillars will error out, in these cases the error should be clearly indicated in the state message.
+However, sometimes you will need to:
+
+```
+sudo tail -n300 /var/log/salt/minion
+# or 
+sudo tail -n300 /var/log/salt/master
+```
+
 ![alt text](/img/salt-layout.png "Logo Title Text 1")

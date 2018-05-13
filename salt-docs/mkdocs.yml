@@ -26,7 +26,61 @@ extra:
     master: salt.example.com
     fqdn: example.com
     example:
-      app_name: 'donkey-mule'
+      app_name: 'my_awesome_app'
+      instances:
+        - qa-core-app-api01.example.com
+        - qa-core-app-worker01.example.com
+        - qa-core-app-beat01.example.com
+    cloud:
+      profile:
+        name: aws.seoul.conf
+        path: /etc/salt/cloud.profiles.d/aws.seoul.conf
+        data: |
+          private_network_az_a:
+            availability_zone: ap-northeast-2a
+            image: ami-633d920d
+            provider: ec2-northeast-2-vpc
+            script: bootstrap-py3.sh
+            securitygroupid:
+            - sg-e9a97d83
+            size: t2.micro
+            ssh_username: ubuntu
+            subnetid: subnet-ae7f53c6
+          private_network_az_c:
+            availability_zone: ap-northeast-2a
+            image: ami-633d920d
+            provider: ec2-northeast-2-vpc
+            script: bootstrap-py3.sh
+            securitygroupid:
+            - sg-e9a97d83
+            size: t2.micro
+            ssh_username: ubuntu
+            subnetid: subnet-4019890c
+          public_network:
+            image: ami-633d920d
+            provider: ec2-northeast-2-vpc
+            script: bootstrap-py3.sh
+            securitygroupid:
+            - sg-e9a97d83
+            size: t2.micro
+            ssh_username: ubuntu
+            subnetid: subnet-3ea53172
+          rabbitmq_az_a:
+            extends: private_network_az_a
+          rabbitmq_az_c:
+            extends: private_network_az_c
+          redis_az_a:
+            extends: private_network_az_a
+          redis_az_c:
+            extends: private_network_az_c
+          scantrust_api_az_a:
+            extends: private_network_az_a
+          scantrust_api_az_c:
+            extends: private_network_az_c
+          scantrust_worker_az_a:
+            extends: private_network_az_a
+          scantrust_worker_az_c:
+            extends: private_network_az_c
     git:
       pillar: https://github.com/example/salt-pillar
       profiles: https://github.com/example/salt-profiles

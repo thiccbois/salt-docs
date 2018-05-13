@@ -5,9 +5,9 @@ pages:
   - 'Overview': overview.md
   - 'Get Started': getting-started.md
   - 'Commands': commands-overview.md
-  - 'Formulas': formulas.md
   - 'Pillars': pillars.md
   - 'Profiles': profiles.md
+  - 'Formulas': formulas.md
   - 'Cloud': salt-cloud.md
   - 'Contact': contact.md
 theme: readthedocs

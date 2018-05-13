@@ -42,8 +42,8 @@ extra:
         - qa-core-app-beat01.example.com
     cloud:
       profile:
-        name: aws.seoul.conf
-        path: /etc/salt/cloud.profiles.d/aws.seoul.conf
+        name: aws.conf
+        path: /etc/salt/cloud.profiles.d/aws.conf
         data: |
           private_network_az_a:
             availability_zone: ap-northeast-2a

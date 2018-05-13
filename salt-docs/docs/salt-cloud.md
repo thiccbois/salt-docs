@@ -16,11 +16,11 @@ These are profiles stored at `{{ salt.cloud.profile.path }}` and currently look 
 1. determine in which subnet the instance should be2
 
 ```
-sudo salt-cloud -p private_network_az_a {{ salt.example.instances[0] }}
+sudo salt-cloud -p example_api_az_a {{ salt.example.instances[0] }}
 ```
 
 ```
-sudo salt-cloud -p private_network_az_c {% for instance in salt.example.instances %}{{ instance }} {% endfor %}
+sudo salt-cloud -p example_api_az_c {% for instance in salt.example.instances %}{{ instance }} {% endfor %}
 ```
 
 **NB** the username is `ubuntu` above, however we usually disable this user and prefer to take ops usernames and id_rsa.pub keys as access users.

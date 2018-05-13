@@ -22,6 +22,7 @@ extra:
     name: Your name here
     web: www.example.com
   salt:
+    version: 2018.3.0
     project: example
     master: salt.example.com
     fqdn: example.com
@@ -68,21 +69,13 @@ extra:
             size: t2.micro
             ssh_username: ubuntu
             subnetid: subnet-3ea53172
-          rabbitmq_az_a:
+          example_api_az_a:
             extends: private_network_az_a
-          rabbitmq_az_c:
+          example_api_az_c:
             extends: private_network_az_c
-          redis_az_a:
+          example_worker_az_a:
             extends: private_network_az_a
-          redis_az_c:
-            extends: private_network_az_c
-          scantrust_api_az_a:
-            extends: private_network_az_a
-          scantrust_api_az_c:
-            extends: private_network_az_c
-          scantrust_worker_az_a:
-            extends: private_network_az_a
-          scantrust_worker_az_c:
+          example_worker_az_c:
             extends: private_network_az_c
     git:
       pillar: https://github.com/example/salt-pillar

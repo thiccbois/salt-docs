@@ -8,53 +8,52 @@
 Command examples (run from salt-master - salt.example.com)
 
 
-####  Run a command on all machines
+### Run a command on all machines
 ```
 salt '*' cmd.run "uptime"
 ```
 
 
-####  Run a command on only all app machines
+### Run a command on a set of group machines
 ```
 salt '{{ salt.example.partials[0] }}' cmd.run "uptime"
 ```
 
 
-####  Run a command on only api machines
+### Run a command on a set of specific service-type machines
 ```
 salt '{{ salt.example.partials[1] }}' cmd.run "uptime"
 ```
 
 
-####  Run state.apply on a single machine
+### Run state.apply on a single machine
 ```
 salt '{{ example }}' state.apply
 ```
 
 
-###  Create a new worker instance
+### Create a new worker instance
 
 Once you have created a worker profile you are then able to spawn instances of it.
 
 ```
-sudo salt-cloud -p private_network_az_a {{ example }}
+sudo salt-cloud -p example_api_az_a {{ example }}
 ```
 
 at this point state.apply is run and the matching name `prd-worker*` would install the app configured for running as a worker, install the latest version and bring all dependencies up
 
 
-###  Destroy an instance
+### Destroy an instance
 ```
 salt-cloud -d {{ example }}
-
 ```
 
-###  Deployment using state with docker version latest
+### Deployment using state with docker version latest
 ```
 salt '{{ example }}' state.apply pillar={"{{ salt.example.app_name }}":{"version": "latest"}}
 ```
 
-###  Deployment using state with docker tag version override
+### Deployment using state with docker tag version override
 ```
 salt '{{ example }}' state.apply pillar={"{{ salt.example.app_name }}":{"version": "fac4219"}}
 ```

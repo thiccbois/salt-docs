@@ -2,15 +2,18 @@ site_name: Thiccbois - Salt Documentation
 site_description: Using saltstack a guide from 2 thiccbois
 pages:
   - Home: index.md
-  - 'Overview': overview.md
-  - 'Get Started': getting-started.md
-  - 'Commands': commands-overview.md
-  - 'Pillars': pillars.md
-  - 'Profiles': profiles.md
-  - 'Formulas': formulas.md
+  - 'Get Started':
+      - 'Introduction': getting-started.md
+      - 'Overview': overview.md
+      - 'Commands': commands-overview.md
+      - 'Pillars': pillars.md
+      - 'Profiles': profiles.md
+      - 'Formulas': formulas.md
+  - 'Salt Master': salt-master.md
   - 'Cloud': salt-cloud.md
+  - 'F.A.Q': faq.md
   - 'Contact': contact.md
-theme: readthedocs
+theme: spacelab
 plugins:
     - search
     - markdownextradata

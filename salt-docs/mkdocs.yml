@@ -27,6 +27,9 @@ extra:
     fqdn: example.com
     example:
       app_name: 'my_awesome_app'
+      partials:
+        - qa-core-app*
+        - qa-core-app-api*
       instances:
         - qa-core-app-api01.example.com
         - qa-core-app-worker01.example.com

@@ -14,15 +14,15 @@ salt '*' cmd.run "uptime"
 ```
 
 
-####  Run a command on only worker machines
+####  Run a command on only all app machines
 ```
-salt 'prd-worker*' cmd.run "uptime"
+salt '{{ salt.example.partials[0] }}' cmd.run "uptime"
 ```
 
 
-####  Run a command on only staging worker machines
+####  Run a command on only api machines
 ```
-salt 'stage-worker*' cmd.run "uptime"
+salt '{{ salt.example.partials[1] }}' cmd.run "uptime"
 ```
 
 

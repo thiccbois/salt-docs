@@ -34,12 +34,12 @@ extra:
     example:
       app_name: 'my_awesome_app'
       partials:
-        - qa-core-app*
-        - qa-core-app-api*
+        - qa-app*
+        - qa-app-api*
       instances:
-        - qa-core-app-api01.example.com
-        - qa-core-app-worker01.example.com
-        - qa-core-app-beat01.example.com
+        - qa-app-api01.example.com
+        - qa-app-worker01.example.com
+        - qa-app-beat01.example.com
     cloud:
       profile:
         name: aws.conf

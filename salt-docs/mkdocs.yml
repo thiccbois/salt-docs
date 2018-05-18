@@ -40,6 +40,26 @@ extra:
         - qa-app-api01.example.com
         - qa-app-worker01.example.com
         - qa-app-beat01.example.com
+      profile_top: |
+          base:
+            '*':
+              - profiles.base
+
+            'qa-app-api*.example.com':
+              - docker
+              - my_awesome_app
+              - redis
+              - rabbit
+      pillar_top: |
+          base:
+            '*':
+              - base
+            #
+            # my_awesome_app
+            #
+            'qa-app-api*.example.com':
+              - qa.my_awesome_app
+
     cloud:
       profile:
         name: aws.conf
@@ -86,8 +106,8 @@ extra:
       pillar: https://github.com/example/salt-pillar
       profiles: https://github.com/example/salt-profiles
       formulas:
-        - name: example-formula
-          repo: https://github.com/example/example-formula
+        - name: my_awesome_app-formula
+          repo: https://github.com/example/my_awesome_app-formula
         - name: rabbitmq-formula
           repo: https://github.com/example/rabbitmq-formula
         - name: redis-formula

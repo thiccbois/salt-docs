@@ -45,12 +45,27 @@ cookiecutter https://github.com/thiccbois/salt-formula-cookiecutter
 
 ## Once your formula is complete
 
-1. include it in your salt project
+*include it in your salt project*
+
+1. Add the git repo to the gitfs_remotes found in **salt-pillar/salt/master.sls**
 
 ```
-@todo:stefan
+gitfs_remotes:{% for remote in salt.git.formulas %}
+    - {{ remote.repo }}{% endfor %}
 ```
 
-2. associate it with a host in the `profile/tops.sls` 
+2. you may need to wait for the gitfs to sync, or run `sudo salt-call saltutil.sync_all`
+2. associate your formula with a host in the `profile/tops.sls`.
+2. **NB** the formula name used in the tops.sls files, is not the `{{ salt.example.app_name }}-formula` folder, instead its the folder within that `{{ salt.example.app_name }}-formula` folder, that the init.sls file for your formula is in. e.g. `{{ salt.example.app_name }}-formula/{{ salt.example.app_name }}/init.sls` so the name used is `- {{ salt.example.app_name }}`
+
+```
+{{ salt.example.profile_top }}
+```
+
 3. in `pillars/tops.sls` associate a path to a new pillar i.e. `pillars/path/to/{{ salt.example.app_name }}` with a hostname
-4. then you can `salt '{{ salt.example.instances[0] }}' state.apply` and your formula should work.. or you can start debugging
+
+```
+{{ salt.example.pillar_top }}
+```
+
+4. then you are able to run `sudo salt '{{ salt.example.instances[0] }}' state.apply` and your formula should work.. or you can start debugging

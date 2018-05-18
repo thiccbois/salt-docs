@@ -1,4 +1,4 @@
-.PHONY: all set-base build base login aws-login push run
+.PHONY: all set-base build base login aws-login push run mkdocs
 #
 # make build-base login push - will build and push the base image
 # make build login push - will build and push the app image
@@ -20,7 +20,10 @@ AWS_REGION:=eu-central-1
 
 all: build login push
 
-build:
+mkdocs:
+	pushd salt-docs;mkdocs build;popd
+
+build: mkdocs
 	docker build -t ${LATEST} -t ${VERSION} -t ${REGISTRY}/${LATEST} -t ${REGISTRY}/${VERSION} \
 				 --build-arg BUILD_COMMIT_SHA1=${BUILD_COMMIT_SHA1} \
 				 --build-arg BUILD_COMMIT_DATE=${BUILD_COMMIT_DATE} \
@@ -39,4 +42,4 @@ push:
 	docker push ${REGISTRY}/${LATEST}
 
 run:
-	docker run -p 8000:8000 ${LATEST}
+	docker run --rm -p 8080:8043 -v ${PWD}/salt-docs/site:/srv/http --name salt-docs salt-docs:latest

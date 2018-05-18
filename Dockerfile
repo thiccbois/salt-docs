@@ -17,4 +17,4 @@ ENV BUILD_BRANCH=$BUILD_BRANCH
 ENV BUILD_DATE=$BUILD_DATE
 ENV BUILD_REPO_ORIGIN=$BUILD_REPO_ORIGIN
 
-CMD ["/goStatic", "-append-header HeaderName:Value", "-context /", "-default-user-basic-auth salt-docs", "-enable-basic-auth", "-port 8043", "-set-basic-auth salt-docs:salty2018"]
+CMD ["/goStatic", "-append-header HeaderName:Value", "-default-user-basic-auth salt-docs", "-enable-basic-auth", "-port 8043", "-set-basic-auth salt-docs:salty2018"]

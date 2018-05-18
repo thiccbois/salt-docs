@@ -4,7 +4,7 @@
 # make build login push - will build and push the app image
 #
 TAG:=$$(git log -1 --pretty=%h)
-NAME:=salt-docs
+NAME:=rosscdh/salt-docs
 VERSION:=${NAME}:${TAG}
 LATEST:=${NAME}:latest
 
@@ -15,7 +15,7 @@ BUILD_BRANCH:=$$(git symbolic-ref --short HEAD)
 BUILD_DATE:=$$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 DOCKERFILE=Dockerfile
-REGISTRY=dockerhub.com/rosscdh/salt-docs
+REGISTRY=registry.hub.docker.com
 AWS_REGION:=eu-central-1
 
 all: build login push
@@ -23,7 +23,7 @@ all: build login push
 mkdocs:
 	pushd salt-docs;mkdocs build;popd
 
-build: mkdocs
+build:
 	docker build -t ${LATEST} -t ${VERSION} -t ${REGISTRY}/${LATEST} -t ${REGISTRY}/${VERSION} \
 				 --build-arg BUILD_COMMIT_SHA1=${BUILD_COMMIT_SHA1} \
 				 --build-arg BUILD_COMMIT_DATE=${BUILD_COMMIT_DATE} \

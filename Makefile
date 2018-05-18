@@ -23,7 +23,7 @@ all: build login push
 mkdocs:
 	pushd salt-docs;mkdocs build;popd
 
-build:
+build: mkdocs
 	docker build -t ${LATEST} -t ${VERSION} -t ${REGISTRY}/${LATEST} -t ${REGISTRY}/${VERSION} \
 				 --build-arg BUILD_COMMIT_SHA1=${BUILD_COMMIT_SHA1} \
 				 --build-arg BUILD_COMMIT_DATE=${BUILD_COMMIT_DATE} \
@@ -42,5 +42,8 @@ push:
 	docker push ${REGISTRY}/${LATEST}
 	docker push ${REGISTRY}/${VERSION}
 
-run:
+dev:
 	docker run --rm -p 8080:8043 -v ${PWD}/salt-docs/site:/srv/http --name salt-docs ${LATEST}
+
+run:
+	docker run --rm -p 8080:8043 --name salt-docs ${LATEST}

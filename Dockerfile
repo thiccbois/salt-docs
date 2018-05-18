@@ -17,4 +17,6 @@ ENV BUILD_BRANCH=$BUILD_BRANCH
 ENV BUILD_DATE=$BUILD_DATE
 ENV BUILD_REPO_ORIGIN=$BUILD_REPO_ORIGIN
 
+COPY $PWD/salt-docs/site /srv/http
+
 CMD ["-append-header", "X-Version:$BUILD_COMMIT_SHA1", "-port", "8043", "-set-basic-auth", "salt-docs:salty2018"]

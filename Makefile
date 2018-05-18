@@ -42,4 +42,4 @@ push:
 	docker push ${REGISTRY}/${LATEST}
 
 run:
-	docker run --rm -p 8080:8043 -v ${PWD}/salt-docs/site:/srv/http --name salt-docs salt-docs:latest
+	docker run --rm -p 8080:8043 -v ${PWD}/salt-docs/site:/srv/http --name salt-docs ${LATEST}

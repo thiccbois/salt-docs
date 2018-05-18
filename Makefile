@@ -40,6 +40,7 @@ aws-login:
 
 push:
 	docker push ${REGISTRY}/${LATEST}
+	docker push ${REGISTRY}/${VERSION}
 
 run:
 	docker run --rm -p 8080:8043 -v ${PWD}/salt-docs/site:/srv/http --name salt-docs ${LATEST}

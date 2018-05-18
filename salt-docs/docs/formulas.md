@@ -57,7 +57,7 @@ gitfs_remotes:{% for remote in salt.git.formulas %}
     - {{ remote.repo }}{% endfor %}
 ```
 
-2. you may need to wait for the gitfs to sync, or run `sudo salt-call saltutil.sync_all`
+2. you may need to wait for the gitfs to sync, or run `sudo salt-call state.apply` and `sudo salt-call saltutil.sync_all`
 2. associate your formula with a host in the `profile/tops.sls`.
 2. **NB** the formula name used in the tops.sls files, is not the `{{ salt.example.app_name }}-formula` folder, instead its the folder within that `{{ salt.example.app_name }}-formula` folder, that the init.sls file for your formula is in. e.g. `{{ salt.example.app_name }}-formula/{{ salt.example.app_name }}/init.sls` so the name used is `- {{ salt.example.app_name }}`
 

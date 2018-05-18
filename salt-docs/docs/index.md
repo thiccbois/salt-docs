@@ -14,6 +14,6 @@ For a high level overview of the core salt concepts head over to "[Overview](ove
 
 ## Reference
 
-1. Read about Salt (version: {{ salt.version }}) [SaltStack docs](https://docs.saltstack.com/en/latest/)
+1. Read about Salt (version: {{ salt.version }}) [SaltStack docs](https://docs.saltstack.com/en/latest/topics/releases/{{salt.version}}.html)
 2. A list of Salt Formulas [Salt Formulas](https://github.com/saltstack-formulas)
 3. Templating with Cookiecutter [CookieCutter](https://github.com/audreyr/cookiecutter)

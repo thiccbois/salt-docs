@@ -2,6 +2,9 @@
 
 *The building blocks of your application infrastructure*
 
+As you have seen in the [Pillars](pillars.md) and [Profiles](profiles.md) sections, a way is needed to combine an initial state for an application.
+This is accomplished using a salt `formula`.
+
 A formula is a way of composing a set of profiles and pillars (applications and their configuration) that can be bundled and used by salt.
 
 Our formulas follow the following pattern:
@@ -43,7 +46,7 @@ Use cookiecutter to base your new application formula off of our base formula.
 cookiecutter https://github.com/thiccbois/salt-formula-cookiecutter
 ```
 
-## Once your formula is complete
+## Use your formula
 
 *include it in your salt project*
 

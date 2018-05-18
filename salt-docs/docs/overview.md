@@ -41,4 +41,4 @@ sudo tail -n300 /var/log/salt/minion
 sudo tail -n300 /var/log/salt/master
 ```
 
-![alt text](/img/salt-layout.png "Logo Title Text 1")
+![salt overview](/img/salt-layout.png "Logo Title Text 1")

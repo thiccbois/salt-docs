@@ -6,8 +6,8 @@ pages:
       - 'Introduction': getting-started.md
       - 'Overview': overview.md
       - 'Commands': commands-overview.md
-      - 'Pillars': pillars.md
       - 'Profiles': profiles.md
+      - 'Pillars': pillars.md
       - 'Formulas': formulas.md
   - 'Salt Master': salt-master.md
   - 'Cloud': salt-cloud.md

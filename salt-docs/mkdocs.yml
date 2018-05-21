@@ -12,8 +12,10 @@ pages:
   - 'Ops Manual' :
     - 'Salt Master': salt-master.md
     - 'Cloud': salt-cloud.md
-    - 'Deployment': deployment.md
-    - 'Rollback': rollback.md
+    - 'Rolling Deploy': deployment.md
+      - 'Rollback': rollback.md
+    - 'In-place Deploy': deployment-inplace.md
+      - 'Rollback': rollback-inplace.md
   - 'F.A.Q': faq.md
   - 'Contact': contact.md
 theme: spacelab

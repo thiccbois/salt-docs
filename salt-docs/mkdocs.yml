@@ -14,6 +14,9 @@ pages:
     - 'Cloud': salt-cloud.md
     - 'Deploy - Rolling': deployment.md
     - 'Deploy - In-place': deployment-inplace.md
+    - 'Monitoring': monitoring.md
+    - 'Logging': logging.md
+    - 'Networks': networks.md
   - 'F.A.Q': faq.md
   - 'Contact': contact.md
 theme: spacelab

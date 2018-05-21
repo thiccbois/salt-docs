@@ -5,6 +5,7 @@
 #
 TAG:=$$(git log -1 --pretty=%h)
 NAME:=rosscdh/salt-docs
+#NAME:=salt-docs
 VERSION:=${NAME}:${TAG}
 LATEST:=${NAME}:latest
 
@@ -16,7 +17,8 @@ BUILD_DATE:=$$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 DOCKERFILE=Dockerfile
 REGISTRY=registry.hub.docker.com
-AWS_REGION:=eu-central-1
+#REGISTRY=715161504141.dkr.ecr.ap-northeast-2.amazonaws.com
+AWS_REGION:=ap-northeast-2
 
 all: build login push
 

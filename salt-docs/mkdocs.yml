@@ -9,8 +9,11 @@ pages:
       - 'Profiles': profiles.md
       - 'Pillars': pillars.md
       - 'Formulas': formulas.md
-  - 'Salt Master': salt-master.md
-  - 'Cloud': salt-cloud.md
+  - 'Ops Manual' :
+    - 'Salt Master': salt-master.md
+    - 'Cloud': salt-cloud.md
+    - 'Deployment': deployment.md
+    - 'Rollback': rollback.md
   - 'F.A.Q': faq.md
   - 'Contact': contact.md
 theme: spacelab

@@ -25,24 +25,24 @@ extra:
     - name: Ross Crawford-d'Heureuse
       email: sendrossemail@gmail.com
     - name: Stefan Schweer
-      email: s.schweer@heavycloud.de
+      email: s.schweer@heavycloud.de  
   customer:
-    name: Scantrust
-    web: www.scantrust.com
+    name: Your name here
+    web: www.example.com
   salt:
     version: 2018.3.0
-    project: scantrust
-    master: salt.scantrust.cc
-    fqdn: scantrust.cc
+    project: example
+    master: salt.example.com
+    fqdn: example.com
     example:
-      app_name: 'scantrust-api'
+      app_name: 'my_awesome_app'
       partials:
         - qa-app*
         - qa-app-api*
       instances:
-        - qa-app-api01.scantrust.cc
-        - qa-app-worker01.scantrust.cc
-        - qa-app-beat01.scantrust.cc
+        - qa-app-api01.example.com
+        - qa-app-worker01.example.com
+        - qa-app-beat01.example.com
       profile_top: |
           base:
             '*':
@@ -50,7 +50,7 @@ extra:
 
             'qa-app-api*.example.com':
               - docker
-              - scantrust
+              - my_awesome_app
               - redis
               - rabbit
       pillar_top: |
@@ -58,14 +58,15 @@ extra:
             '*':
               - base
             #
-            # scantrust-api
+            # my_awesome_app
             #
             'qa-app-api*.example.com':
-              - qa.scantrust.api
+              - qa.my_awesome_app
+
     cloud:
       profile:
-        name: aws.seoul.conf
-        path: /etc/salt/cloud.profiles.d/aws.seoul.conf
+        name: aws.conf
+        path: /etc/salt/cloud.profiles.d/aws.conf
         data: |
           private_network_az_a:
             availability_zone: ap-northeast-2a
@@ -96,31 +97,23 @@ extra:
             size: t2.micro
             ssh_username: ubuntu
             subnetid: subnet-3ea53172
-          rabbitmq_az_a:
+          example_api_az_a:
             extends: private_network_az_a
-          rabbitmq_az_c:
+          example_api_az_c:
             extends: private_network_az_c
-          redis_az_a:
+          example_worker_az_a:
             extends: private_network_az_a
-          redis_az_c:
-            extends: private_network_az_c
-          scantrust_api_az_a:
-            extends: private_network_az_a
-          scantrust_api_az_c:
-            extends: private_network_az_c
-          scantrust_worker_az_a:
-            extends: private_network_az_a
-          scantrust_worker_az_c:
+          example_worker_az_c:
             extends: private_network_az_c
     git:
-      pillar: https://git.heavycloud.de/scantrust/salt-pillar
-      profiles: https://git.heavycloud.de/scantrust/salt-profiles
+      pillar: https://github.com/example/salt-pillar
+      profiles: https://github.com/example/salt-profiles
       formulas:
-        - name: scantrust-formula
-          repo: https://git.heavycloud.de/scantrust/scantrust-formula
+        - name: my_awesome_app-formula
+          repo: https://github.com/example/my_awesome_app-formula
         - name: rabbitmq-formula
-          repo: https://git.heavycloud.de/scantrust/rabbitmq-formula
+          repo: https://github.com/example/rabbitmq-formula
         - name: redis-formula
-          repo: https://git.heavycloud.de/scantrust/redis-formula
+          repo: https://github.com/example/redis-formula
         - name: docker-formula
-          repo: https://git.heavycloud.de/scantrust/docker-formula
+          repo: https://github.com/example/docker-formula

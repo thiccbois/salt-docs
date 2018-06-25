@@ -31,6 +31,25 @@ salt '{{ salt.example.partials[1] }}' cmd.run "uptime"
 salt '{{ example }}' state.apply
 ```
 
+## Modules
+
+Salt has built in modules that wrap the machine level commands with nice high level statements; so you dont have to worry about what the os level command is (salt handles that for you)
+
+### Restart a service
+```
+salt '{{ example }}' service.restart {{ salt.example.app_name }}
+```
+
+### List docker images
+```
+salt '{{ example }}' docker.images
+```
+
+### List docker running services
+```
+salt '{{ example }}' docker.ps all=True
+```
+
 
 ### Create a new worker instance
 

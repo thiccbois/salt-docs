@@ -31,6 +31,13 @@ salt '{{ salt.example.partials[1] }}' cmd.run "uptime"
 salt '{{ example }}' state.apply
 ```
 
+### Update the gitfs formulas on salt master
+
+```
+sudo salt-run cache.clear_git_lock gitfs type=update
+sudo salt-run fileserver.update
+```
+
 ## Modules
 
 Salt has built in modules that wrap the machine level commands with nice high level statements; so you dont have to worry about what the os level command is (salt handles that for you)

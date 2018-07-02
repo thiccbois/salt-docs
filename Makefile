@@ -4,8 +4,8 @@
 # make build login push - will build and push the app image
 #
 TAG:=$$(git log -1 --pretty=%h)
-NAME:=rosscdh/salt-docs
-#NAME:=salt-docs
+#NAME:=rosscdh/salt-docs
+NAME:=salt-docs
 VERSION:=${NAME}:${TAG}
 LATEST:=${NAME}:latest
 
